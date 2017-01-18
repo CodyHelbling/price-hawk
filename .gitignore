@@ -1,0 +1,6 @@
+# Compiled Source #
+*.pyc
+
+# Emacs Backups #
+#*.
+*.~
