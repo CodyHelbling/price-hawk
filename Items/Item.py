@@ -13,10 +13,12 @@ class Item():
     def __init__(self, name, price, url):
         self.name = name
         self.original_price = price
+        self.current_price = price
         self.url = url
 
-    # def get_current_price()
-        
+    def get_current_price(self):
+        return self.current_price
+
     # def get_name()
 
     # def get_original_price()
