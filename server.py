@@ -1,5 +1,5 @@
 from bottle import route, run, request, response
-from lxml_scraper.amazon_scraper import scraper
+from Scraper.amazon_scraper import scraper
 
 
 @route('/add_url')
