@@ -1,7 +1,7 @@
 <snippet>
   <content><![CDATA[
-# ${1:PriceHawk}
-PriceHawk is a web application that tracks prices of goods on a webpage given a url. 
+# ${1:Project Name}
+TODO: Write a project description
 ## Installation
 TODO: Describe the installation process
 ## Usage
