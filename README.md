@@ -1,7 +1,7 @@
 <snippet>
   <content>
 #PriceHawk
-TODO: Write a project description
+PriceHawk takes a url, finds the price of the main good in html, and checks for price updates periodically using a xpath.
 ## Installation
 TODO: Describe the installation process
 ## Usage
