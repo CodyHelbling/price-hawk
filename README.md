@@ -1,7 +1,9 @@
 <snippet>
   <content>
 #PriceHawk
-PriceHawk takes a url, finds the price of the main good in html, and checks for price updates periodically using a xpath.
+PriceHawk tracks the price of an item and sends push notifications upon the item's price drops.
+To do this, PriceHawks accepts a url, determines the xpath of the item's price through
+collaboration with user, and periodically checks the xpath for a price drop.
 ## Installation
 TODO: Describe the installation process
 ## Usage
