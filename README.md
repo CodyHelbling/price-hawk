@@ -4,6 +4,7 @@
 PriceHawk tracks the price of an item and sends push notifications upon the item's price drops.
 To do this, PriceHawks accepts a url, determines the xpath of the item's price through
 collaboration with user, and periodically checks the xpath for a price drop.
+
 ## Installation
 TODO: Describe the installation process
 ## Usage
