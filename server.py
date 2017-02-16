@@ -13,6 +13,13 @@ def add_url():
             " and price: " + str(price) + "?")
 
 
+@route('/price')
+def get_price():
+    url = request.query.url
+    price = scraper(url)
+    return price
+           
+           
 # Serve Static Files
 @route('/static/<filename>')
 def server_static(filename):
