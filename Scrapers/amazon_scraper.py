@@ -1,4 +1,4 @@
-from lxml import html
+from lxml import html, etree
 import requests
 
 
@@ -7,7 +7,18 @@ def test_scraper():
     tree = html.fromstring(page.content)
     print tree.xpath('//span[@id="priceblock_ourprice"]/text()')
 
+    
+def test_scraper2():
+    regexpNS = "http://exslt.org/regular-expressions"
+    find = etree.XPath("//*[re:test(., '^([1-9][0-9]{,2}(,[0-9]{3})*|[0-9]+)(\.[0-9]{1,9})?$', 'i')]",
+                       namespaces={'re': regexpNS})
+    root = etree.XML("<root><a>5</a><b>aBc</b></root>")
+    print "    root: ", root
+    for a in root:
+        print "   a: ", a.text
+    print(find(root)[0].text)
 
+    
 def scraper(url):
     print "Scraper URL: ", url
     page = requests.get(url)
@@ -19,4 +30,5 @@ def scraper(url):
 
 
 if __name__ == "__main__":
-    test_scraper()
+    # test_scraper()
+    test_scraper2()
