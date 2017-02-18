@@ -20,7 +20,8 @@ class Scraper():
         self.html_tree = etree.ElementTree(self.html_root)
 
     def find_items(self):
-        items = []
+        items = {}
+        id = 0
         for node in self.html_root.iter():
             if node.text:
                 m = re.search('\$?[0-9]+\.[0-9][0-9]|\$[0-9]+', node.text)
@@ -34,7 +35,7 @@ class Scraper():
                                 url=self.url,
                                 xpath=self.html_tree.getpath(node),
                                 )
-                    items.append(item)
+                    items[id] = item
         return items
 
     def get_html_str_from_url(self):
