@@ -1,4 +1,10 @@
+"""
+PriceHawk Scraper Module
+TODO: Document
+"""
+
 import re
+
 import requests
 from lxml import etree, html
 
@@ -26,16 +32,15 @@ class Scraper():
             if node.text:
                 m = re.search('\$?[0-9]+\.[0-9][0-9]|\$[0-9]+', node.text)
                 if m:
-                    print "m:    ", m.group(0)
-                    # print dir(i)
-                    print self.html_tree.getpath(node)
-                    # print e.text
+                    # print "price: ", m.group(0)
                     item = Item(name="todo_name",
                                 price=m.group(0),
                                 url=self.url,
                                 xpath=self.html_tree.getpath(node),
                                 )
                     items[id] = item
+                    id += 1
+        print "items: ", items
         return items
 
     def get_html_str_from_url(self):
