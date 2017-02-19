@@ -2,11 +2,11 @@ import json
 
 from flask import Flask, abort, request
 
-
-import Scraper
-import User
+from Scraper import Scraper
+from User import User
 
 app = Flask(__name__)
+user = User('Cody')
 
 
 @app.route('/')
@@ -18,19 +18,26 @@ def hello_world():
 def get_prices():
     url = request.args['url']
     print "url: ", url
-    # scraper = Scraper(url)
-    # user = User('Cody')
-    # user.possible_items = scraper.possible_items
-    # return json.dump(user.possible_items)
-    return url
+    scraper = Scraper(url)
 
-@app.route('/select/price', methods=['POST'])
+    user.update_possible_items(scraper.possible_items)
+    items_with_index = {}
+
+    for index in user.possible_items.keys():
+        items_with_index[index] = user.possible_items[index].current_price
+
+    return json.dumps(items_with_index)
+
+
+@app.route('/select', methods=['POST', 'GET'])
 def select_price():
-    if (not request.json) or ('price' not in request.json):
+    if (not request.json):
+        print "ADFADFSFASDFASFASD"
         abort(400)
     item_id = request.json['item_id']
     # Add support for new uncreated user
 
     # Add item to users items
-    user = User('Cody')
     user.add_item_from_possible_items_by_id(item_id)
+    print user.items[0].current_price
+    return "Success"
