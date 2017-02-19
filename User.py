@@ -1,5 +1,6 @@
 """
 PriceHawk User Module
+TODO: Document
 """
 
 
@@ -16,4 +17,3 @@ class User():
 
     def update_possible_items(self, possible_items):
         self.possible_items = possible_items
-        
