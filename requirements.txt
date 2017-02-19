@@ -37,3 +37,16 @@ termcolor==1.1.0
 Twisted==16.6.0
 w3lib==1.16.0
 zope.interface==4.3.3
+appdirs==1.4.0
+click==6.7
+Flask==0.12
+itsdangerous==0.24
+Jinja2==2.9.5
+lxml==3.7.2
+MarkupSafe==0.23
+packaging==16.8
+pyparsing==2.1.10
+requests==2.13.0
+six==1.10.0
+termcolor==1.1.0
+Werkzeug==0.11.15
