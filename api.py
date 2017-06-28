@@ -13,10 +13,16 @@ user = User('Cody')
 def hello_world():
     return 'Hello, World!'
 
+@app.route('/test')
+def test():
+    return 'test'
 
 @app.route('/prices', methods=['GET'])
 def get_prices():
-    url = request.args['url']
+    try:
+        url = request.args['url']
+    except:
+        return 'Please use a url querystring argument.'
     print "url: ", url
     scraper = Scraper(url)
 
