@@ -90,7 +90,8 @@ def delete_store(tx, id):
     
 # --------- Follows -----------
 
-
+def add_follows(tx, follower, followee):
+    result = tx.run()
 # Add User Follows Item
 # Was Follows Added
 # Remove User Follows Item
