@@ -90,9 +90,22 @@ def delete_store(tx, id):
     
 # --------- Follows -----------
 
-def add_follows(tx, follower, followee):
-    result = tx.run()
+def add_follows(tx, follower_id, followee_id):
+    result = tx.run("MATCH (a:User), (b:User)"
+                    "WHERE a.id=$follower_id AND b.id=$followee_id"
+                    "CREATE (a)->[r:Follows]->(b)"
+                    "RETURN r",
+                    follower_id=follower_id,
+                    followee_id=followee_id)
+    
 # Add User Follows Item
+def add_tracks(tx, tracker_id, trackee_id):
+    result = tx.run("MATCH (a:User), (b:Item)"
+                    "WHERE a.id=$user_id AND b.id=$item_id"
+                    "CREATE (a) ->[r:Tracks]->(b)"
+                    "RETURN r",
+                    user_id=tracker,
+                    item_id=trackee)
 # Was Follows Added
 # Remove User Follows Item
 # Was User Follows Item Removed
