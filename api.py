@@ -1,4 +1,5 @@
 import json
+import time
 
 from flask import Flask, abort, request
 
@@ -19,6 +20,7 @@ def test():
 
 @app.route('/prices', methods=['GET'])
 def get_prices():
+    start = time.time()
     try:
         url = request.args['url']
     except:
@@ -31,7 +33,8 @@ def get_prices():
 
     for index in user.possible_items.keys():
         items_with_index[index] = user.possible_items[index].current_price
-
+    end = time.time()
+    print "\ntime: ", (end-start), "\n"
     return json.dumps(items_with_index)
 
 

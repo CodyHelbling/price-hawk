@@ -1,0 +1,10 @@
+from neo4j.v1 import GraphDatabase
+
+driver = GraphDatabase("bolt://localhost:7474", auth=("neo4j", "sharpie7"))
+
+def add_user(tx, name):
+    tx.run("CREATE (n:Person { name: $name })", name=name)
+
+with driver.session as session:
+    session.write_transaction(add_user, "A")
+    session.write_transaction(add_user, "B")
