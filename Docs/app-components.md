@@ -4,3 +4,8 @@
 * User Accounts
   * Item following lists
   * Required personal info
+* People/Stores/Products Graph
+  * Users -> Follow -> People/Stores/Products
+  * Analytics API for stores?
+* Alerts
+  ** Price change 
