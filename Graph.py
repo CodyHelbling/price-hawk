@@ -1,6 +1,6 @@
 from neo4j.v1 import GraphDatabase
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "sharpie7"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "dev-pass"))
 
 
 user_id_counter = 0
